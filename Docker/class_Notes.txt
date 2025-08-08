@@ -235,6 +235,8 @@ Day 17 : 5th August 2025
 			docker run -it -p 8085:8080 tomcat:8.0 			
 		
 				-p <host_port>:<container_port>
+
+				(Go to the cloud service security page to add inbound rules for the port where all incoming traffic is allowed on all orts.)
 			
 				Access the Application running inside the container using port mapping :
 			
