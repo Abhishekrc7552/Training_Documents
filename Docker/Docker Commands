@@ -1,0 +1,24 @@
+Docker Commands :::::
+
+docker images                                                                                           ## List the Images.
+docker ps                                                                                               ## List the Active/running Containers.
+docker ps -a                                                                                            ## List all the Container (Active & In-Active).
+
+docker pull ubuntu(Image name)
+docker pull tomcat:8.0
+      (Image name : Version/Tag name)
+
+docker run <image_name>		              	                                                              ## To create a Container based on Container Image.
+docker run ubuntu sleep 20                                                                              ## Run docker in foreground mode.
+docker run -d ubuntu sleep 20                                                                           ## Run docker in background mode.
+docker run -it ubuntu bash                                                                              ## Run docker in Interactive mode.
+
+docker start <Container_ID>
+docker exec -it <Container_ID> bash
+docker stop <Container_ID>
+
+docker run -it -p 8085:8080 tomcat:8.0    #                                                             ## Mapping or Port binding.
+        <host_VM_port>:<Container_port> container_image_name
+
+docker rmi tomcat:8.0                                                                                   ## Remove Image.
+docker rm <Container_ID>                                                                                ## Remove Container using Container_ID.
