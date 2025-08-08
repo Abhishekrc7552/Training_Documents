@@ -1,0 +1,33 @@
+
+
+
+########################################################
+#####            Build triggers                     ####
+########################################################
+
+
+1. Build Periodic :::
+
+	The build is scheduled based on the crontab.
+
+
+Under pipelines project > configuration.
+Click in the Build periodically and enter the crontab in the schedule section.
+And click on apply and save check the build status console output.
+
+
+2. Github Webhook :::
+
+	Used to trigger the jenkins jobs whenever there is any commit happened in the remote repository.
+	
+	1. Go to your Github remote repository and there clcik on the settings in the header line of the <>code section.
+	2. Under code and automation click on webhooks and then click on 'Add Webhook'.
+	3. Under the payload URL enter the End point URl for the project i.e.  <Latest_Public_IP_Address of jenkins server>:8080/github-webhook/
+	   Eg:	http://65.0.11.216:8080/github-webhook/
+	4. Click on the add webhook.
+	5. commit any chnages in the code in the remote repository. Once chnages are commited then build on the job is triggered automatically.
+
+
+3. Poll-SCM		  :::
+
+ click on the POll-SCM and the add the crontab in the schedule section.

@@ -1,0 +1,105 @@
+
+
+
+###################################################
+
+###      Steps to create a Tomcat server       ####
+
+###################################################
+
+
+1. Create a VM in EC2 instance in AWS and enable the port 8080 in the security TAB in inbound rules.
+
+2. Follow the below steps to setup the tomcat Environment and setup :::
+
+	sudo -i
+	apt update -y
+	apt-get install default-jdk -y
+	java --version
+	cd /opt/
+	wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.tar.gz
+	tar -xvzf /opt/apache-tomcat-8.5.99.tar.gz
+	mv apache-tomcat-8.5.99 tomcat
+	cd tomcat/bin/
+	./startup.sh
+
+3. Open the web browser and enter the public IP of the Tomcat server as follows :::
+
+		<Public IP address>:8080	
+
+
+
+
+**************************************************************************************************************************************
+
+
+1. After the installation of Tomcat and its setup go to jenkins page.
+
+2. Navigate to Jenkins > Plugins > Available plugins and then install the 'Publish Over SSH' plugin and then restart the jenkins setvice.
+
+3. Then navigate to Manage jenkins (aka the setting icon at the top) > system > Publish Over SSH.
+
+4. Click on add SSH server under Publish Over SSH and enter the details of Tomcat server :::
+
+	Name : QA-Tomcat-server
+	Hostname : <Private_IP_Address> of tomcat server
+	Username : devopsadmin
+	Remote directory : /opt/tomcat/webapps
+	
+5. Below click on the Advanced drop down > Use password authentication, or use a different key. And copy the private key from Tomcat server to the key section.
+
+6. Click on the test the configuration and then save.
+
+7. Then navigate to jenkins Pipeline project configuration page and then add the code snippet in the deployement section using the Pipeline syntax snippet
+   generator.
+   In it select the sshPublisher in sample step.
+   In source file section enter the source file location like target/*.war.
+   In Remote directory enter "." which means current hoe directory of the Tomcat server.
+   In remove prefix section enter the target/* as we do not want any folder or directory above the tranfered war file i.e. just the war file.
+   And Click on generate snippet :::
+   
+sshPublisher(publishers: [sshPublisherDesc(configName: 'QA-Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '',
+execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+',
+remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false,
+useWorkspaceInPromotion: false, verbose: false)])
+
+8. Then copy the script in the jenkins configuration page and save it and build the job and check the status in console output.
+	
+	
+	Pipeline script :::
+	
+	pipeline {
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout from github repository'
+				git 'https://github.com/PL-DevOps-GenAI-0625/java-webapp-project.git'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Maven Application Build'
+                sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to QA Environment') {
+            steps {
+                script{
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'QA-Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                }
+            }
+        }
+    }
+}
+
+
+
+
+9. Once done then check the war file in the tomcat server under /opt/tomcat/webapps directory and then in the tomcat url just type and enter the following :::
+
+           <Public_IP_Address of Tomcat server>:8080/demo-1.0-SNAPSHOT    (as the war file name is demo-1.0-SNAPSHOT.war)
+
+
+
