@@ -12,5 +12,5 @@ root@ip-172-31-7-184:~/docker-contents#
 Solution :::
 
 used the :::  docker push abhishekrc7552/mvn-img:v2.0
-        where tag was allocated at time of creation so it accepted.
+        where tag was allocated at time of creation so it accepted and also the repo name i created was same as the username then it worked.
 
