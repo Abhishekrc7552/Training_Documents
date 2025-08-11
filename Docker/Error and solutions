@@ -1,0 +1,10 @@
+Error :::
+
+root@ip-172-31-7-184:~/docker-contents# docker push abhisheketa/mvn-self-img:v1.0
+The push refers to repository [docker.io/abhisheketa/mvn-self-img]
+2ddedf488042: Preparing
+48e25bb74d1d: Preparing
+01e32140b363: Preparing
+107cbdaeec04: Preparing
+denied: requested access to the resource is denied
+root@ip-172-31-7-184:~/docker-contents#
