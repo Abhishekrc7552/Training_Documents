@@ -41,17 +41,19 @@ RUN apt update -y
 RUN apt install git -y
 RUN apt install maven -y
 
+## Initially create a new repository in Dockerhub by the name of username default then proceed :::
+
+docker build -t <dockerhub_repo_name>/<New_image_name>:<Tag_name> .                   ## Create a new Container with help of a Dockerfile which contains required installation commands.
+docker build -t abhishekrc7552/maven-new-img:v3.0 .                                   ## " . " is used to direct the current directory of Dockerfile.
 
 
-docker build -t abhisheketa/mvn-self-img:v1.0 .                                                         ## Create a new Container with help of a Dockerfile which contains required installation commands.
-docker build -t <dockerhub_repo_name>/<New_image_name>:<Tag_name> .                                     ## " . " is used to direct the current directory of Dockerfile.
-
-
-## Personal Access Token :::
+## Personal Access Token ::: (in the account settings of Dockerhub)
 
 docker login -u abhishekrc7552
 
 dckr_pat_WChwTJ3y8wwR8d-dzYLM-9gyih0
 
+docker push abhishekrc7552/maven-new-img:v3.0
 
+## Check the Dockerhub repository there you will find the pushed images.
 
