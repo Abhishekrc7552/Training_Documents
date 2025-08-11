@@ -22,3 +22,32 @@ docker run -it -p 8085:8080 tomcat:8.0    #                                     
 
 docker rmi tomcat:8.0                                                                                   ## Remove Image.
 docker rm <Container_ID>                                                                                ## Remove Container using Container_ID.
+
+
+docker volume list                                                                                      ## Lista all the volumes created.
+docker volume create test-vol1                                                                          ## Create Volume test-vol1
+docker volume inspect test-vol1                                                                         ## Detailed info of Volume.
+docker run -it --mount source=test-vol1,destination=/test-vol1 ubuntu bash                              ## mounting a source path thats linked with Volume.
+
+docker commit 8a2a4e7375f1 abhisheketa/mvn-img:v1.0                                                     ## Create a new Container image based on existing Container.
+docker commit <existing Con ID> <dockerhub_repo_name>/<New_image_name>:<Tag_name>
+
+
+
+vi Dockerfile                                                                                           ## Pre-requiste for the Docker build command.
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install git -y
+RUN apt install maven -y
+
+
+
+docker build -t abhisheketa/mvn-self-img:v1.0 .                                                         ## Create a new Container with help of a Dockerfile which contains required installation commands.
+docker build -t <dockerhub_repo_name>/<New_image_name>:<Tag_name> .                                     ## " . " is used to direct the current directory of Dockerfile.
+
+
+
+
+
+
