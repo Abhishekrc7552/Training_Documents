@@ -1,3 +1,6 @@
+kubectl get nodes                          
+## gets you nodes details and their status
+
 *******************************************************************
 # 1. 	Create Pod Object Manifest File :
 
