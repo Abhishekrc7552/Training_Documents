@@ -2,8 +2,8 @@ kubectl get nodes
 ## gets you nodes details and their status
 
 *******************************************************************
-# 1. 	Create Pod Object Manifest File :
-
+# 1. 	Create Pod Object Manifest File :                     ## In path /root/kubernetes  
+                                                            ## mkdir kubernetes
 # nginx-pod.yaml
 apiVersion: v1
 kind: Pod
