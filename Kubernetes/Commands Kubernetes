@@ -9,3 +9,9 @@ kubectl get ns
 kubectl get pods --all-namespaces -o wide
 
 
+
+kubectl describe deploy nginx-deploy
+
+kubectl scale deployment nginx-deploy --replicas=10                                                    ## Used to scale up and scale down.
+
+
