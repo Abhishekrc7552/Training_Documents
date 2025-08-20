@@ -1,1 +1,1 @@
-
+In Docker the Volume is associated with container. But in kubernetes the Volume is associated with Pod, which inturn is linked to multiple oir single containers.
