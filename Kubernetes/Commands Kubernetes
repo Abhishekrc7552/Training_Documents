@@ -15,3 +15,46 @@ kubectl describe deploy nginx-deploy
 kubectl scale deployment nginx-deploy --replicas=10                                                    ## Used to scale up and scale down.
 
 
+
+
+
+######################################################################################################################
+###  Enabling New User to access the kubernetes Commands ###
+
+
+
+useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+
+su - devopsadmin
+ssh-keygen -t ecdsa -b 521
+
+cd .ssh/
+
+cat id_ecdsa.pub > authorized_keys
+
+exit
+
+chmod 600 /home/devopsadmin/.ssh/*
+
+usermod -aG docker devopsadmin
+
+visudo
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+devopsadmin ALL=(ALL) NOPASSWD: ALL
+
+su - devopsadmin
+
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubectl get nodes
+
+
+
+
+
