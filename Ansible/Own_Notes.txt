@@ -1,0 +1,1 @@
+In Ansible playbook command the setup module is executed my default.
