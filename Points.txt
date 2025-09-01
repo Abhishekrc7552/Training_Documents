@@ -1,1 +1,3 @@
 In Docker the Volume is associated with container. But in kubernetes the Volume is associated with Pod, which inturn is linked to multiple oir single containers.
+
+Helm Package manager is used to setup Prometheus and Grafana for Monitoring in Kubernetes Cluster.
