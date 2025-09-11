@@ -140,7 +140,8 @@ http://13.232.146.141:9090/
 
 #Install Grafana :
 
-### Goto https://grafana.com/grafana/download
+### Goto https://grafana.com/grafana/download  and go the OS sectio and click on Ubuntu and follow the three steps for installation and remaining 3 after the installation us done and check the service and use the 3000 port and public IP and access the GUI of grafana.
+
 
 ###select OSS Edition.
 #Choose Linux
