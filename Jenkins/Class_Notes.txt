@@ -614,6 +614,9 @@ Click Manage Account Settings
 
 MFA --> mobile#
 
+
+Search for App Password in the search box to create it.
+
 App Password = 16 bytes of App Password. vaufxdfsdf asdf ltzr
 
 What ? window
