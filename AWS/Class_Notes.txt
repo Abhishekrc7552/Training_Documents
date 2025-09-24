@@ -282,3 +282,124 @@ Day 40 : 16th Sep. 2025
 	Working with Load Balancer!
 	
 		- Create a Load Balancer and Route Traffic to EC2 Instances thru Load Balancer.
+
+
+		
+	
+#######################
+Day 41 : 18th Sep. 2025
+#######################	
+
+
+	- Cloud Front & Global Accelerator!
+	
+		- Content Delivery Network. 
+			- Improve the User Experience!
+			
+			
+	- Cloud Watch :::
+	
+		- Monitor Service Architecture :::
+		
+		
+		Retrieval Component 
+		
+		Time Series Database ?
+		
+		
+		CPU/Memory
+		
+		
+		Monitoring - Continuous Monitoring!
+		
+			Production Support !
+			
+			Production Monitoring !
+		
+			Kubernetes Monitoring ::::
+			
+				Helm :::
+				
+				
+#######################
+Day 42 :22nd Sep. 2025
+#######################	
+
+
+Lambda Service :::
+
+	Serverless :::
+	
+		Users no need to manage any infra.
+			
+
+		SQS
+
+
+		SNS 
+
+
+
+Next :::
+
+	Conti with Route53
+
+	Security
+
+
+		
+#######################
+Day 43 :23rd Sep. 2025
+#######################				
+			
+
+	Route53 
+	
+	Security
+
+	
+	AWS Security & Encryptions ::::
+	
+		EC2 - SG 
+		
+		Subnet - NACL 
+		
+		Secured Key Pairs 
+		
+		SQS --> Encryption --> During Rest, On-Transit
+		
+		Security Certificates 
+		
+		AWS Key Vault : Credential Manager 
+		
+		Jenkins Credential Manager - 
+		
+
+	Cloudformation :::
+	
+		Infra-Structure Provisioning - IAC tool
+			
+			Terraform - AWS/Azure
+				- Kubernetes
+				- Github 				
+		
+			AWS CLI config
+			
+				Script - CDK
+				
+					Python -> boto3 Libraries 	
+	
+		https://docs.aws.amazon.com/cli/latest/userguide/cli_iam_code_examples.html
+		
+		
+		aws configure 
+		
+			aws.tf :
+			
+				vpc,subnet,route_table,Route Table Asso, IGW, Sec Grp, EC2 
+				
+		CF Template : 
+		
+				s3 bucket!
+		
+				vpc,subnet,route_table,Route Table Asso, IGW, Sec Grp, EC2 
